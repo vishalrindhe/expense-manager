@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  {{myForm.valid|json}}
+  <form [formGroup]="myForm">
+    <!-- <ion-item>
+      <ion-input label="Title" labelPlacement="floating" formControlName="title" type="text"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label>Mode</ion-label>
+      online<ion-toggle formControlName="mode" color="danger"></ion-toggle>cash
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type</ion-label>
+      expense<ion-toggle formControlName="type" color="danger"></ion-toggle>income
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [multiple]="true" formControlName="category">
+        <ion-select-option *ngFor="let category of category" [value]="category">{{category|titlecase}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="stacked">Description</ion-label> -->
+      <ion-textarea label="Description" labelPlacement="floating" formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-button type="button" expand="block" (click)="submit()">Submit</ion-button>
+  </form>
+</ion-content>
